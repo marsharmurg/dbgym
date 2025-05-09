@@ -24,9 +24,6 @@ public class Clase {
     private String horario;
 
     @ManyToOne
-    private Entrenador entrenador;
-
-    @ManyToOne
     @JoinColumn(name = "entrenador_id")
     private Entrenador entrenador;
 

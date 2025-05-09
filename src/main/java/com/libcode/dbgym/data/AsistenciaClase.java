@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -17,11 +18,12 @@ public class AsistenciaClase {
     private Long id;
     
     @ManyToOne
+    @JoinColumn(name = "miembro_id")
     private Miembro miembro;
 
     @ManyToOne
-    private Clase clase;
-
+    @JoinColumn(name = "clase_id")
+    private Clase clases;
 
 
     @Column

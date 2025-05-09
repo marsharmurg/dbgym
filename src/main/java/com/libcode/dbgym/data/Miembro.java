@@ -1,6 +1,6 @@
 package com.libcode.dbgym.data;
 
-import org.hibernate.mapping.List;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,11 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.Table;  // Cambié a la clase correcta
 
 @Entity
-@Table (name = "miembros")
+@Table(name = "miembros")
 public class Miembro {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,10 +39,10 @@ public class Miembro {
     @Column
     private String nidentificacion;
 
+    // Cambié la declaración de List a java.util.List
     @OneToMany(mappedBy = "miembro")
     private List<Membresia> membresias;
 
-    
     public Long getId() {
         return id;
     }
@@ -106,10 +107,12 @@ public class Miembro {
         this.nidentificacion = nidentificacion;
     }
 
-     public List<Membresia> getMembresias() {
+    public List<Membresia> getMembresia() {
         return membresias;
     }
 
-    
-
+    public void setMembresia(List<Membresia> membresias) {
+        this.membresias = membresias;
+    }
 }
+
